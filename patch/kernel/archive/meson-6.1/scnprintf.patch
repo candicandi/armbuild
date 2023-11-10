@@ -1,0 +1,23 @@
+Update sprintf in serial_show frunction to scnprintf command to
+prevent sysfs buffer overflow (buffer always is PAGE_SIZE bytes).
+
+Signed-off-by: Viacheslav Bocharov <adeep@xxxxxxxxx>
+---
+ drivers/firmware/meson/meson_sm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/firmware/meson/meson_sm.c b/drivers/firmware/meson/meson_sm.c
+index ed60f1103053..c1c694b485ee 100644
+--- a/drivers/firmware/meson/meson_sm.c
++++ b/drivers/firmware/meson/meson_sm.c
+@@ -265,7 +265,7 @@ static ssize_t serial_show(struct device *dev, struct device_attribute *attr,
+ 		return ret;
+ 	}
+ 
+-	ret = sprintf(buf, "%12phN\n", &id_buf[SM_CHIP_ID_OFFSET]);
++	ret = scnprintf(buf, PAGE_SIZE, "%12phN\n", &id_buf[SM_CHIP_ID_OFFSET]);
+ 
+ 	kfree(id_buf);
+ 
+-- 
+2.34.1
