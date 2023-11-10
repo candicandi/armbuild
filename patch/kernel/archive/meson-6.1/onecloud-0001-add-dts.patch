@@ -27,7 +27,7 @@ new file mode 100644
 index 00000000..1fa5420f
 --- /dev/null
 +++ b/arch/arm/boot/dts/meson8b-onecloud.dts
-@@ -0,0 +1,410 @@
+@@ -0,0 +1,382 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Author: hzy <hzyitc@outlook.com>
