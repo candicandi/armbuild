@@ -82,34 +82,6 @@ index 00000000..1fa5420f
 +		};
 +	};
 +
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		red {
-+			label = "onecloud:red:alive";
-+			gpios = <&gpio_ao GPIOAO_2 GPIO_ACTIVE_HIGH>;
-+
-+			default-state = "on";
-+			linux,default-trigger = "default-on";
-+		};
-+
-+		green {
-+			label = "onecloud:green:alive";
-+			gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
-+
-+			default-state = "off";
-+			linux,default-trigger = "mmc1";
-+		};
-+
-+		blue {
-+			label = "onecloud:blue:alive";
-+			gpios = <&gpio_ao GPIOAO_4 GPIO_ACTIVE_HIGH>;
-+
-+			default-state = "off";
-+			linux,default-trigger = "usb-host";
-+		};
-+	};
-+
 +	p12v: regulator-p12v {
 +		compatible = "regulator-fixed";
 +
