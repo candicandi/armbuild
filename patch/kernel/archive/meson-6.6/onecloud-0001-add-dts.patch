@@ -25,7 +25,7 @@ new file mode 100644
 index 00000000..1fa5420f
 --- /dev/null
 +++ b/arch/arm/boot/dts/amlogic/meson8b-onecloud.dts
-@@ -0,0 +1,410 @@
+@@ -0,0 +1,382 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
 + * Author: hzy <hzyitc@outlook.com>
@@ -77,34 +77,6 @@ index 00000000..1fa5420f
 +
 +			interrupt-parent = <&gpio_intc>;
 +			interrupts = <5 IRQ_TYPE_LEVEL_LOW>; // GPIOAO 5
-+		};
-+	};
-+
-+	leds {
-+		compatible = "gpio-leds";
-+
-+		red {
-+			label = "onecloud:red:alive";
-+			gpios = <&gpio_ao GPIOAO_2 GPIO_ACTIVE_HIGH>;
-+
-+			default-state = "on";
-+			linux,default-trigger = "default-on";
-+		};
-+
-+		green {
-+			label = "onecloud:green:alive";
-+			gpios = <&gpio_ao GPIOAO_3 GPIO_ACTIVE_HIGH>;
-+
-+			default-state = "off";
-+			linux,default-trigger = "mmc1";
-+		};
-+
-+		blue {
-+			label = "onecloud:blue:alive";
-+			gpios = <&gpio_ao GPIOAO_4 GPIO_ACTIVE_HIGH>;
-+
-+			default-state = "off";
-+			linux,default-trigger = "usb-host";
 +		};
 +	};
 +
