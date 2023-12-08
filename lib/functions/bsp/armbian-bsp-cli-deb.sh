@@ -103,7 +103,11 @@ function compile_armbian-bsp-cli() {
 		INITRD_ARCH=$INITRD_ARCH
 		KERNEL_IMAGE_TYPE=$KERNEL_IMAGE_TYPE
 		FORCE_BOOTSCRIPT_UPDATE=$FORCE_BOOTSCRIPT_UPDATE
-		VENDOR=$VENDOR
+		VENDOR="$VENDOR"
+		VENDORDOCS="$VENDORDOCS"
+		VENDORURL="$VENDORURL"
+		VENDORSUPPORT="$VENDORSUPPORT"
+		VENDORBUGS="$VENDORBUGS"
 	EOF
 
 	# copy general overlay from packages/bsp-cli
@@ -394,6 +398,7 @@ function board_side_bsp_cli_postrm() { # not run here
 	if [[ remove == "$1" ]] || [[ abort-install == "$1" ]]; then
 		systemctl disable armbian-hardware-monitor.service armbian-hardware-optimize.service > /dev/null 2>&1
 		systemctl disable armbian-zram-config.service armbian-ramlog.service > /dev/null 2>&1
+		systemctl disable armbian-live-patch.service > /dev/null 2>&1
 	fi
 }
 
